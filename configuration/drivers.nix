@@ -4,7 +4,10 @@
     hardware.graphics.enable = true;
 
     # Load nvidia driver for Xorg and Wayland
-    services.xserver.videoDrivers = ["nvidia"];
+    services.xserver.videoDrivers = [
+        "modesetting"
+        "nvidia"
+    ];
 
     hardware.nvidia = {
 
@@ -24,7 +27,7 @@
         # https://github.com/NVIDIA/open-gpu-kernel-modules#compatible-gpus 
         # Only available from driver 515.43.04+
         # Currently alpha-quality/buggy, so false is currently the recommended setting.
-        open = false;
+        open = true;
         
         # Enable the Nvidia settings menu,
             # accessible via `nvidia-settings`.
@@ -34,9 +37,11 @@
         package = config.boot.kernelPackages.nvidiaPackages.stable;
         
         prime = { 
+            offload.enable = true;
+
             # Make sure to use the correct Bus ID values for your system!
-            intelBusId = "PCI:00:02.0";
-            nvidiaBusId = "PCI:01:00.0";
+            # intelBusId = "PCI:00:02.0";
+            nvidiaBusId = "PCI:61:00.0";
         };
 
     };
