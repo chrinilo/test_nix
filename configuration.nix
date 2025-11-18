@@ -5,22 +5,13 @@
 { config, pkgs, ... }:
 
 {
+  nixpkgs.config.allowUnfree = true;
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ./configuration/pkgs.nix
-      ./configuration/fonts.nix
-      ./configuration/users.nix
-      ./configuration/locals.nix
 
-      
-      # ./configuration/kdeplasma.nix
-      
-      ./configuration/hyprlandConf.nix
-      
-      ./configuration/drivers.nix
-      ./configuration/sound.nix
-
+      ./configuration/import_conf.nix
+      ./applications/import_applications.nix
     ];
 
   # Bootloader.

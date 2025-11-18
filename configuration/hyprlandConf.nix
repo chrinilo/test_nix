@@ -4,7 +4,7 @@
 		kitty	
 
 		# hyprland ecosystem
-		hyprlock
+		# hyprlock
 		hypridle
 		hyprpaper
 		hyprsunset
@@ -13,9 +13,11 @@
 
 	];
 
+	#services.xserver.enable = true;
+
 	programs.hyprland = {
 		enable = true;
-		withUWSM = true; # recommended for most users
+		# withUWSM = true; # recommended for most users
 		xwayland.enable = true; # Xwayland can be disabled.
 	};
 

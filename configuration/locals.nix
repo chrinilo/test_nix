@@ -1,4 +1,4 @@
-{ config, ... }   
+{ config, ... }:
 {
      # Set your time zone.
     time.timeZone = "Europe/Oslo";
@@ -19,5 +19,5 @@
     };
  
     # Configure console keymap
-    console.keyMap = "no";
+    console.keyMap = "us";
 }
